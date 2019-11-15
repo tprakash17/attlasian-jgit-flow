@@ -69,6 +69,25 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+          <groupId>external.atlassian.jgitflow</groupId>
+          <artifactId>jgitflow-maven-plugin</artifactId>
+          <version>1.0-m5.1</version>
+          <configuration>
+              <enableSshAgent>true</enableSshAgent>
+              <autoVersionSubmodules>true</autoVersionSubmodules>
+              <pushFeatures>true</pushFeatures>
+              <pushReleases>true</pushReleases>
+              <pushHotfixes>true</pushHotfixes>
+              <noDeploy>true</noDeploy>
+              <flowInitContext>
+                  <developBranchName>development</developBranchName>
+                  <versionTagPrefix>version-</versionTagPrefix>
+              </flowInitContext>
+              <enableSshAgent>true</enableSshAgent>
+              <scmCommentPrefix>DEVOPS-000 release merge</scmCommentPrefix>
+             </configuration>
+	      </plugin>
       </plugins>
     </pluginManagement>
   </build>
