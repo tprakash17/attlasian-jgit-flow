@@ -52,7 +52,7 @@ Note:- If you are cloning this project then you need not to add this plugin into
 
 ## Walkthrough
 
-#### Clone this repo
+* **Clone this repo**
 ```
 $ git clone https://github.com/tprakash17/atlassian-jgit-flow.git
 ```
@@ -60,7 +60,7 @@ $ git clone https://github.com/tprakash17/atlassian-jgit-flow.git
 After cloning make sure you upload this repository to the repo where you have write access. This is required to make sure plugin has all the necessary permissions to automatically merge the code.
 
 
-#### Checkout feature branch from development
+* **Checkout feature branch from development**
 Make sure you are on `development` branch before checking out feature.
 
 ```
@@ -68,18 +68,26 @@ $ git checkout -b feature/DEVOPS-01
 ```
 Make some changes to the code and raise the pull request against `development` branch.
 
-#### Start release
-maven `jgitflow` introduces few maven goals such as following to automate the workflow.
 
-`jgitflow:release-start` Starts a release
-`jgitflow:release-finish` Finishes a release
-`jgitflow:hotfix-start` Starts a hotfix
-`jgitflow:hotfix-finish` Finishes a hotfix
 
+There are few more goals this plugin provides. [More details](https://bitbucket.org/atlassian/jgit-flow/wiki/goals.wiki#!goals-overview)
+
+* **Start release**
+
+maven `jgitflow` introduces few maven goals such as following to automate release workflow. 
+
+* [jgitflow:release-start](https://bitbucket.org/atlassian/jgit-flow/wiki/goals/release-start) - Prepares the project for a release. Creates a release branch and updates pom(s) with the release version.
+* [jgitflow:release-finish](https://bitbucket.org/atlassian/jgit-flow/wiki/goals/release-finish) - Releases the project. Builds the project, Merges the release branch (as per git-flow), optionally pushes changes and updates pom(s) to new development version.
 
 ```
 $ mvn jgitflow:release-start
 ```
 This should create the `release` branch along with the revi.
 
+* **Finish Release**
+```
+$ mvn jgitflow:release-finish
+```
+
+This should automatically update the release version into master and bump the SNAPSHOT into development pom without us handling it manually.
 
