@@ -1,7 +1,6 @@
 # attlasian-jgit-flow
 Sample project that demostrates the functionality and use of `jgitflow` plugin provided by attlasian here - https://bitbucket.org/atlassian/jgit-flow/wiki/Home
 
-
 Its a maven plugin that produces gitflow style releases. 
 
 To enable this - we add following into `POM.xml`
@@ -27,6 +26,7 @@ To enable this - we add following into `POM.xml`
   </configuration>
 </plugin>
 ```
+Note:- If you are cloning this repo then you need not to add. Its already a part of this sample project.
 
 ## Gitflow 
 GitFlow is one of the popular branching strategy in the software development practice. It mostly focuses on what kind of branches to set up and how to merge them together. This process helps in desgining better pipeline workflow to speed up the controlled S/W release processes.
@@ -39,16 +39,13 @@ GitFlow is one of the popular branching strategy in the software development pra
 3. `release` branch is cut from `development` once all the intended features merged into `development`. (Any bug-fixed that was missed during development branch testing will be done in this `release` branch.
 4. Finally, upon QA sign-off `release` branch merges into master and as well as back to `development`
 
-*Why MAVEN JGITFLOW PLUGIN?*
-Here comes the jgit flow plugin that is aligned with gitflow process with extra bit of automation by handling the version and pom updates automatically.
+## Why [maven jgitflow](https://bitbucket.org/atlassian/jgit-flow/wiki/Home) ?
+maven jgit flow plugin is aligned with the gitflow process with extra bit of automation by handling the version and pom updates automatically freeing us from manual intervention.
 
-### Prerequisites
+## Prerequisites
 * Make sure we have JAVA and MAVEN configured correctly along with their ENV variables. such `JAVA_HOME`, `M2_HOME` and `MAVEN_HOME`.
 
-Note:- If you are cloning this project then you need not to add this plugin into POM. Its already a part of this project.
-
-
-## Walkthrough
+## Walkthrough - hands-on
 
 * **Clone this repo**
 ```
@@ -89,3 +86,4 @@ $ mvn jgitflow:release-finish
 ```
 
 This should automatically update the release version into master and bump the SNAPSHOT into development pom without us handling it manually. 
+
