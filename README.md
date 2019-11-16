@@ -1,20 +1,85 @@
 # attlasian-jgit-flow
 Sample project that demostrates the functionality and use of `jgitflow` plugin provided by attlasian here - https://bitbucket.org/atlassian/jgit-flow/wiki/Home
 
-Its a maven plugin that produces gitflow style releases.
+
+Its a maven plugin that produces gitflow style releases. 
+
+To enable this - we add following into `POM.xml`
+
+```
+<plugin>
+  <groupId>external.atlassian.jgitflow</groupId>
+  <artifactId>jgitflow-maven-plugin</artifactId>
+  <version>1.0-m5.1</version>
+  <configuration>
+    <enableSshAgent>true</enableSshAgent>
+    <autoVersionSubmodules>true</autoVersionSubmodules>
+    <pushFeatures>true</pushFeatures>
+    <pushReleases>true</pushReleases>
+    <pushHotfixes>true</pushHotfixes>
+    <noDeploy>true</noDeploy>
+    <flowInitContext>
+      <developBranchName>development</developBranchName>
+        <versionTagPrefix>version-</versionTagPrefix>
+    </flowInitContext>
+    <enableSshAgent>true</enableSshAgent>
+    <scmCommentPrefix>DEVOPS-000 </scmCommentPrefix>
+  </configuration>
+</plugin>
+```
 
 ## Gitflow 
 GitFlow is one of the popular branching strategy in the software development practice. It mostly focuses on what kind of branches to set up and how to merge them together. This process helps in desgining better pipeline workflow to speed up the controlled S/W release processes.
 
 ## Release Process
-![GitFlow](https://user-images.githubusercontent.com/38158144/68937127-dd3bfc80-07c1-11ea-9631-bd365e47aa2a.png)
+![gitflow-release-process](https://user-images.githubusercontent.com/38158144/68986878-ef617d80-0849-11ea-9590-c4a4a36faccb.jpg)
 
-1. Your mainstream branch where continuous development will happen is, `development`.
-2. Feature branches will be checked out from `development` and pull request for them will be raised against development.
-3. `release` branch is cut from development. (Any bug-fixed that was missed during development branch testing will be done in this branch.
-4. Finally, upon QA sign-off on release branch, you will merge `release` branch into master and as well as back to `development`
+1. Our mainstream branch where continuous development happens, is `development`.
+2. Feature branch is checked out from `development` and pull request for it raised against `development`.
+3. `release` branch is cut from `development` once all the intended features merged into `development`. (Any bug-fixed that was missed during development branch testing will be done in this `release` branch.
+4. Finally, upon QA sign-off `release` branch merges into master and as well as back to `development`
 
+*Why MAVEN JGITFLOW PLUGIN?*
 Here comes the jgit flow plugin that is aligned with gitflow process with extra bit of automation by handling the version and pom updates automatically.
 
-## Walkthrough (README still in progess .......)
+### Prerequisites
+* Make sure we have JAVA and MAVEN configured correctly along with their ENV variables. such `JAVA_HOME`, `M2_HOME` and `MAVEN_HOME`.
+* Sample MAVEN project.
+* Add `jgitflow` plugin configuration into POM.
+
+Note:- If you are cloning this project then you need not to add this plugin into POM. Its already a part of this project.
+
+
+## Walkthrough
+
+#### Clone this repo
+```
+$ git clone https://github.com/tprakash17/atlassian-jgit-flow.git
+```
+
+After cloning make sure you upload this repository to the repo where you have write access. This is required to make sure plugin has all the necessary permissions to automatically merge the code.
+
+
+#### Checkout feature branch from development
+Make sure you are on `development` branch before checking out feature.
+
+```
+$ git checkout -b feature/DEVOPS-01
+```
+Make some changes to the code and raise the pull request against `development` branch.
+
+#### Start release
+maven `jgitflow` introduces few maven goals such as following to automate the workflow.
+
+`jgitflow:release-start` Starts a release
+`jgitflow:release-finish` Finishes a release
+`jgitflow:hotfix-start` Starts a hotfix
+`jgitflow:hotfix-finish` Finishes a hotfix
+
+
+```
+$ mvn jgitflow:release-start
+```
+This should create the `release` branch along with the revi.
+
 
