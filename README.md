@@ -44,8 +44,6 @@ Here comes the jgit flow plugin that is aligned with gitflow process with extra 
 
 ### Prerequisites
 * Make sure we have JAVA and MAVEN configured correctly along with their ENV variables. such `JAVA_HOME`, `M2_HOME` and `MAVEN_HOME`.
-* Sample MAVEN project.
-* Add `jgitflow` plugin configuration into POM.
 
 Note:- If you are cloning this project then you need not to add this plugin into POM. Its already a part of this project.
 
@@ -83,12 +81,11 @@ There are few more goals this plugin provides. [More details](https://bitbucket.
 ```
 $ mvn jgitflow:release-start
 ```
-This should create the `release` branch along with the revi.
+This should create a `release` branch with a tag `release-$VERSION`.
 
 * **Finish Release**
 ```
 $ mvn jgitflow:release-finish
 ```
 
-This should automatically update the release version into master and bump the SNAPSHOT into development pom without us handling it manually.
-
+This should automatically update the release version into master and bump the SNAPSHOT into development pom without us handling it manually. 
