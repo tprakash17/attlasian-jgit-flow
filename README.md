@@ -61,16 +61,15 @@ After cloning make sure you upload this repository to the repo where you have wr
 
 
 * **Checkout feature branch from development**
+
 Make sure you are on `development` branch before checking out feature.
 
 ```
 $ git checkout -b feature/DEVOPS-01
 ```
+
 Make some changes to the code and raise the pull request against `development` branch.
 
-
-
-There are few more goals this plugin provides. [More details](https://bitbucket.org/atlassian/jgit-flow/wiki/goals.wiki#!goals-overview)
 
 * **Start release**
 
@@ -78,6 +77,8 @@ maven `jgitflow` introduces few maven goals such as following to automate releas
 
 * [jgitflow:release-start](https://bitbucket.org/atlassian/jgit-flow/wiki/goals/release-start) - Prepares the project for a release. Creates a release branch and updates pom(s) with the release version.
 * [jgitflow:release-finish](https://bitbucket.org/atlassian/jgit-flow/wiki/goals/release-finish) - Releases the project. Builds the project, Merges the release branch (as per git-flow), optionally pushes changes and updates pom(s) to new development version.
+
+There are few more goals this plugin provides. [More details](https://bitbucket.org/atlassian/jgit-flow/wiki/goals.wiki#!goals-overview)
 
 ```
 $ mvn jgitflow:release-start
