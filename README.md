@@ -63,7 +63,7 @@ Make sure you are on `development` branch before checking out feature.
 $ git checkout -b feature/DEVOPS-01
 ```
 
-Make some changes to the code and raise the pull request against `development` branch.
+Make some changes to the code and raise the pull request against `development` branch and merge it.
 
 
 * **Start release**
@@ -78,7 +78,7 @@ There are few more goals this plugin provides. [More details](https://bitbucket.
 ```
 $ mvn jgitflow:release-start
 ```
-This should create a `release` branch with a tag `release-$VERSION`.
+This should create a `release` branch with a tag `release-$VERSION`. Check if the branch is created `git branch -a`
 
 * **Finish Release**
 ```
