@@ -5,7 +5,7 @@
 
   <groupId>com.mydemo.app</groupId>
   <artifactId>mydemo-app</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>mydemo-app</name>
   <!-- FIXME change it to the project's website -->
@@ -80,11 +80,11 @@
               <pushHotfixes>true</pushHotfixes>
               <noDeploy>true</noDeploy>
               <flowInitContext>
-                  <developBranchName>development</developBranchName>
+                  <developBranchName>develop</developBranchName>
                   <versionTagPrefix>version-</versionTagPrefix>
               </flowInitContext>
               <enableSshAgent>true</enableSshAgent>
-              <scmCommentPrefix>DEVOPS-000 release merge</scmCommentPrefix>
+              <scmCommentPrefix>DEVOPS-000 </scmCommentPrefix>
              </configuration>
 	      </plugin>
       </plugins>
