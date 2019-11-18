@@ -18,7 +18,7 @@ To enable this - we add following into `POM.xml`
     <pushHotfixes>true</pushHotfixes>
     <noDeploy>true</noDeploy>
     <flowInitContext>
-      <developBranchName>development</developBranchName>
+      <developBranchName>develop</developBranchName>
         <versionTagPrefix>version-</versionTagPrefix>
     </flowInitContext>
     <enableSshAgent>true</enableSshAgent>
@@ -34,10 +34,10 @@ GitFlow is one of the popular branching strategy in the software development pra
 ## Release Process
 ![gitflow-release-process](https://user-images.githubusercontent.com/38158144/68986878-ef617d80-0849-11ea-9590-c4a4a36faccb.jpg)
 
-1. Our mainstream branch where continuous development happens, is `development`.
-2. Feature branch is checked out from `development` and pull request for it raised against `development`.
-3. `release` branch is cut from `development` once all the intended features merged into `development`. (Any bug-fixed that was missed during development branch testing will be done in this `release` branch.
-4. Finally, upon QA sign-off `release` branch merges into master and as well as back to `development`
+1. Our mainstream branch where continuous development happens, is `develop`.
+2. Feature branch is checked out from `develop` and pull request for it raised against `develop`.
+3. `release` branch is cut from `develop` once all the intended features merged into `develop`. (Any bug-fixed that was missed during development branch testing will be done in this `release` branch.
+4. Finally, upon QA sign-off `release` branch merges into master and as well as back to `develop`
 
 ## Why [maven jgitflow](https://bitbucket.org/atlassian/jgit-flow/wiki/Home) ?
 maven jgit flow plugin is aligned with the gitflow process with extra bit of automation by handling the version and pom updates automatically freeing us from manual intervention.
@@ -57,13 +57,13 @@ After cloning make sure you upload this repository to the repo where you have wr
 
 * **Checkout feature branch from development**
 
-Make sure you are on `development` branch before checking out feature.
+Make sure you are on `develop` branch before checking out feature.
 
 ```
 $ git checkout -b feature/DEVOPS-01
 ```
 
-Make some changes to the code and raise the pull request against `development` branch and merge it.
+Make some changes to the code and raise the pull request against `develop` branch and merge it.
 
 
 * **Start release**
@@ -78,7 +78,7 @@ There are few more goals this plugin provides. [More details](https://bitbucket.
 ```
 $ mvn jgitflow:release-start
 ```
-This should create a `release` branch with a tag `release-$VERSION`. Check if the branch is created `git branch -a`
+This should create a `release` branch with a tag `release/$TAG`. Check if the branch is created `git branch -a`
 
 * **Finish Release**
 ```
