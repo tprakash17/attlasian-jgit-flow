@@ -1,7 +1,7 @@
 # attlasian-jgit-flow
 Sample project that demostrates the functionality and use of `jgitflow` plugin provided by attlasian here - https://bitbucket.org/atlassian/jgit-flow/wiki/Home
-
 Its a maven plugin that produces gitflow style releases. 
+
 
 To enable this - we add following into `POM.xml`
 
